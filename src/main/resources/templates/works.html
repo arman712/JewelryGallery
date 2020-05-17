@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Works</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url("/static/image1.jpg");
+            font-family: sans-serif;
+        }
+
+    </style>
+
+
+    <link rel="stylesheet" href="/static/css/workStyle.css">
+
+</head>
+<body>
+
+<div class="sidenav" onclick="location.href='/';">
+
+    <i class="arrow left"></i>
+</div>
+
+<div class="box" th:unless="${#lists.isEmpty(works)}">
+
+
+    <tr th:each="work : ${works}">
+
+
+        <div class="card">
+            <div class="imgBx">
+                <img class="info" th:src="${work.image}" alt="null"/>
+            </div>
+            <div class="details">
+                <h2>
+                    <td th:text="@{'Price: ' + ${work.price} + '$'}"></td>
+                    <br><span>
+                    <form method="get" th:action="@{'/order/' + ${work.id}}"><button class="b1">Order</button></form>
+                </span></h2>
+            </div>
+        </div>
+
+
+    </tr>
+
+
+</div>
+
+
+<!--<tr th:if="${success} != null">-->
+<!--<div id="footer">-->
+<!--    <p th:text="${success}"></p>-->
+<!--</div>-->
+<!--</tr>-->
+
+</body>
+</html>

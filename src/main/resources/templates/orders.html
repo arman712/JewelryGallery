@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders Edit</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+        <th>Work ID</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="client : ${clients}">
+
+        <td th:text="${client.name}"></td>
+        <td th:text="${client.address}"></td>
+        <td th:text="${client.phoneNumber}"></td>
+        <td th:text="${client.workId}"></td>
+
+        <td><a th:href="@{'/admin/order/delete/' + ${client.id}}">delete</a></td>
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>

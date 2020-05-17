@@ -1,0 +1,73 @@
+
+
+.btnflip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transform-origin: center center;
+}
+.btnflip-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    background-color: rgba(255,255,255, .05);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    border-radius: 30px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: 1s;
+}
+.btnflip-item.btnflip__front {
+    transform: rotateX(0deg) translateZ(20px);
+}
+.btnflip:hover .btnflip-item.btnflip__front {
+    transform: rotateX(-180deg) translateZ(20px);
+}
+.btnflip-item.btnflip__back {
+    transform: rotateX(180deg) translateZ(20px);
+}
+.btnflip:hover .btnflip-item.btnflip__back {
+    transform: rotateX(0deg) translateZ(20px);
+}
+.btnflip-item.btnflip__center {
+    background: linear-gradient(to left, #543fc3, #6e7274);
+}
+.btnflip-item.btnflip__center::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, #909095, #1474c3);
+    border-radius: 30px;
+    transform: translateZ(-1px);
+}
+.btnflip:hover .btnflip-item.btnflip__center {
+    transform: rotateX(-180deg);
+}
+
+.number {
+    color: #cccccc;
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    text-align: left;
+}
+
+
+a {
+    text-decoration: none;
+}

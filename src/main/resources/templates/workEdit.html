@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Work</title>
+</head>
+<body>
+
+
+<form th:object="${path}"  method="post" th:action="${path}">
+    <p align="center"><input type="text" name="price" placeholder="price"></p>
+    <p align="center"><input type="text" name="content" placeholder="content"></p>
+    <p><input type="submit" value="Send"></p>
+</form>
+
+</body>
+</html>
